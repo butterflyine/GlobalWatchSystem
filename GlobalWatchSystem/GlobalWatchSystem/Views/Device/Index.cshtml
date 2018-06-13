@@ -1,0 +1,52 @@
+﻿@using System
+@using GlobalWatchSystem.Helpers
+@using GlobalWatchSystem.Models.ViewModel
+@model System.Collections.Generic.IEnumerable<GlobalWatchSystem.Models.ViewModel.DeviceModel>
+
+<hgroup>
+    <h3 class="page-header">@Resources.MenuDeviceManagement - @Resources.devListView</h3>
+</hgroup>
+
+<article>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>@Resources.DeviceName</th>
+                    <th>@Resources.AreaBelonged</th>
+                    <th>@Resources.DeviceIMEI</th>
+                    <th>@Resources.DeviceNumber</th>
+                    <th>@Resources.Description</th>
+                    <th>@Resources.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DeviceModel device in Model)
+                {
+                    <tr>
+                        <td>@device.Name</td>
+                        <td>@device.AreaName</td>
+                        <td>@device.IMEI</td>
+                        <td>@device.SimNumber</td>
+                        <td>@device.Description</td>
+                        <td>
+                            <a href="@Url.Action("edit", "device", new {id = device.Id})">
+                                <button type="button" class="btn btn-xs btn-default">@Resources.ActionEdit</button>
+                            </a>
+                            @using (Html.BeginForm("delete", "device", new { id = device.Id }, FormMethod.Post, new { @style = "display:inline" }))
+                            {
+                                <input type="submit" class="btn btn-xs btn-default"
+                                       data-delete-alert="@String.Format(Resources.MsgDeleteAlert, device.Name)"
+                                       data-confirm="@Resources.LabelConfirm"
+                                       data-cancel="@Resources.LabelCancel"
+                                       value="@Resources.ActionDelete" />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    @Html.ActionLink(@Resources.ActionCreateDevice, "create", "device")
+    <div class="pull-right">@Html.Pagination((Pagination)ViewBag.Pagination, "device")</div>
+</article>

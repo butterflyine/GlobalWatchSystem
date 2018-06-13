@@ -1,0 +1,70 @@
+﻿@using System
+@using GlobalWatchSystem.Helpers
+@using GlobalWatchSystem.Models.ViewModel
+@model System.Collections.Generic.IEnumerable<GlobalWatchSystem.Models.TransportPlan>
+
+<hgroup>
+    <h3 class="page-header">@Resources.MenuPlanManagement</h3>
+</hgroup>
+
+<article>
+    <div class="table-responsive">
+        @Html.ValidationSummary(true)
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>@Resources.MenuPlanManagement</th>
+                    <th>@Resources.StartTime</th>
+                    <th>@Resources.EndTime</th>
+                    <th>@Resources.Description</th>
+                    <th>@Resources.Actions</th>
+                    <th>@Resources.DeviceData</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var area in Model)
+                {
+                    <tr>
+                        <td>@area.Name</td>
+                        <td>@area.startTime</td>
+                        <td>@area.stopTime</td>
+                        <td>@area.Remark</td>
+                        <td>
+                            @if(area.startTime == null)
+                            { 
+                                <a href="@Url.Action("StartPlan", "TransportPlan", new {id = area.Id})">
+                                    <button type="button" class="btn btn-xs btn-default">@Resources.StartPlan</button>
+                                </a>
+                            }
+                            @if(area.stopTime == null)
+                            {
+                                <a href="@Url.Action("StopPlan", "TransportPlan", new {id = area.Id})">
+                                    <button type="button" class="btn btn-xs btn-default">@Resources.StopPlan</button>
+                                </a>
+                            }
+                            <a href="@Url.Action("Edit", "TransportPlan", new {id = area.Id})">
+                                <button type="button" class="btn btn-xs btn-default">@Resources.ActionEdit</button>
+                            </a>
+                            @using (Html.BeginForm("delete", "TransportPlan", new { id = area.Id }, FormMethod.Post, new { @style = "display:inline" }))
+                            {
+                                <input type="submit" class="btn btn-xs btn-default"
+                                       data-delete-alert="@String.Format(Resources.MsgDeleteAlert, area.Name)"
+                                       data-confirm="@Resources.LabelConfirm"
+                                       data-cancel="@Resources.LabelCancel"
+                                       value="@Resources.ActionDelete" />
+                            }
+                        </td>
+                        <td>
+                            <a href="@Url.Action("ViewPlan", "TransportPlan", new {id = area.Id})">
+                                <button type="button" class="btn btn-xs btn-default">@Resources.ViewPlanTrace</button>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="pull-right">@Html.Pagination((Pagination)ViewBag.Pagination, "area")</div>
+    @Html.ActionLink(@Resources.ActionCreatePlan, "create", "TransportPlan")
+
+</article>

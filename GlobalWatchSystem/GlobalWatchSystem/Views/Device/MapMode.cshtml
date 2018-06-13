@@ -1,0 +1,29 @@
+﻿    
+<hgroup>
+    <h3 class="page-header">@Resources.MenuDeviceManagement - @Resources.devMapView</h3>
+</hgroup>
+<link href="~/assets/css/map.css" rel="stylesheet" />
+<article  > 
+    <div id="tip" class="invisible">
+        <label hidden="hidden" id="areaId">@ViewBag.areaId</label>
+        <input type="button" value="添加点标记覆盖物" onclick="displayMarker()"  />
+        <input type="button" value="删除点" onclick="delMarker()" />
+        <input type="button" value="隐藏点" onclick="showMarkerByTitle('marker 1',false)" />
+        <input type="button" value="打开点1信息窗" onclick="addInfoWindow(findMarkerByTitle('marker 1'))" />
+        <input type="button" value="绘制曲线" onclick="addLine()" />
+        <a href="@Url.Action("CurveMode","Device")">查看曲线</a>
+    </div>
+    <div id="mapContainer" style="width:auto;height:768px" data-dev-infors="@Resources.DeviceInformation"
+         data-dev-name="@Resources.DeviceName"
+         data-dev-belongto="@Resources.AreaBelonged"
+         data-dev-curve="@Resources.devCurveMode"
+         data-dev-historycurve="@Resources.devHistoryMode">
+
+    </div> 
+    
+</article >
+@section MapModeScripts{
+    <script src="http://webapi.amap.com/maps?v=1.3&key=20bfaeaa29dde4edc6b521bdb13252f0"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=j8HK07y0Sc6V3n9UMLo1Wd5IYFCBMEyU"></script>
+    <script src="~/assets/js/maplibrarybaidu.js"></script>    
+}

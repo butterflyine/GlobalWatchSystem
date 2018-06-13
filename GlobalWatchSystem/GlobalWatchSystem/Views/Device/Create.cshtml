@@ -1,0 +1,78 @@
+﻿@model GlobalWatchSystem.Models.ViewModel.DeviceModel
+
+<hgroup class="col-lg-12">
+<h3 class="page-header">@Resources.DeviceManagementCreate</h3>
+</hgroup>
+
+<script>
+    var btnTitle = '@Resources.btnOkTip';
+    var winTitle = '@Resources.FetchGPSFromMap';
+    var obj = window;
+    obj.btnTitle = btnTitle;
+    function LocateGPSFromMap(math)
+    {
+        window.open(math, winTitle, 'height=550,width=600,top=300,left=300,toolbar=no,menubar=no,scrollbars=no, resizable=yes,location=no, status=no');
+    }
+</script>
+<article>
+    @using (Html.BeginForm("create", "device"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="edit-item">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.Name)
+                </div>
+
+                <div class="edit-item">
+                    @Html.LabelFor(m => m.Description)
+                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Description)
+                </div>
+                <div class="edit-item">
+                    @Html.LabelFor(m => m.IMEI)
+                    @Html.TextBoxFor(m => m.IMEI, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.IMEI)
+                </div>
+                <div class="edit-item">
+                    @Html.LabelFor(m => m.SimNumber)
+                    @Html.TextBoxFor(m => m.SimNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.SimNumber)
+                </div>
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.AreaId)
+                    @Html.DropDownList("AreaId", (IEnumerable<SelectListItem>)ViewBag.Areas, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.AreaId)
+                </div>
+                <div class="edit-item" data-tip-val="@Resources.ChangePlanTip" id="tranportItem">
+                    @Html.LabelFor(u => u.TransportPlanId)
+                    @Html.DropDownList("TransportPlanId", (IEnumerable<SelectListItem>)ViewBag.Plans, new { @class = "form-control", @id = "transportPlan" })
+                    @Html.ValidationMessageFor(m => m.TransportPlan)
+                </div>
+                <div class="edit-item" data-tip-val="@Resources.DeviceType" id="deviceMetaItem">
+                    @Html.LabelFor(u => u.DeviceMetaId)
+                    @Html.DropDownList("DeviceMetaId", (IEnumerable<SelectListItem>)ViewBag.DeviceTypes, new { @class = "form-control", @id = "deviceMeta" })
+                    @Html.ValidationMessageFor(m => m.DeviceMetaId)
+                </div>
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.longitude)
+                    @Html.TextBoxFor(m => m.longitude, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.longitude)
+                </div>
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.latitude)
+                    @Html.TextBoxFor(m => m.latitude, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.latitude)
+                </div>
+                <button type="button" class="btn btn-default" onclick="LocateGPSFromMap('../GetGPSFromMap.html')">@Resources.FetchGPSFromMap</button>
+             </div>
+            
+            <button type="submit" class="btn btn-default">@Resources.ActionSave</button>
+        </div>
+    }
+</article>
+
+

@@ -1,0 +1,50 @@
+﻿@model GlobalWatchSystem.Models.AppSetting
+           
+<hgroup class="col-lg-12">
+    <h3 class="page-header">@Resources.AppSettings</h3>
+</hgroup>
+<article>
+    @using (Html.BeginForm("settings", "home"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-lg-6">
+            <div class="form-group">
+                @Html.ValidationSummary(true)
+
+                @Html.HiddenFor(m => m.Id)
+                
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.TemperatureLower)
+                    @Html.TextBoxFor(m => m.TemperatureLower, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.TemperatureLower)
+                </div>
+
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.TemperatureUpper)
+                    @Html.TextBoxFor(m => m.TemperatureUpper, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.TemperatureUpper)
+                </div>
+                
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.HumidityLower)
+                    @Html.TextBoxFor(m => m.HumidityLower, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.HumidityLower)
+                </div>
+
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.HumidityUpper)
+                    @Html.TextBoxFor(m => m.HumidityUpper, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.HumidityUpper)
+                </div>
+
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.Battery)
+                    @Html.TextBoxFor(m => m.Battery, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.Battery)
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">@Resources.ActionSave</button>
+        </div>
+    }
+</article>

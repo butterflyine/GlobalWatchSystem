@@ -1,0 +1,91 @@
+﻿@model GlobalWatchSystem.Models.ViewModel.DeviceModel
+
+<hgroup>
+    <h3 class="page-header">@Resources.MenuDeviceManagement - @Resources.devCurveMode</h3>
+</hgroup>
+
+<article>
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/sb-admin.css" rel="stylesheet" />
+    <link href="~/assets/css/plugins/morris.css" rel="stylesheet" />
+    <link href="~/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <span style="display:none" id="deviceId">@Model.Id</span>
+                <span style="display:none" id ="devIMEI" data-channel-desc="@Resources.ChannelNo">@Model.IMEI</span>
+                <div class="col-md-12 device-realtime-data">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            
+                            <h3 class="panel-title">@Resources.DeviceInformation - @Html.DisplayFor(m => m.Name) <div class="pull-right">@Resources.LastUpdate: <span class="last-update" style="color:#ffffff">-</span></div></h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-2 text-center temperature">
+                                <div class="big-number">
+                                    -
+                                </div>
+                                <div>
+                                    @Resources.Temperature 1
+                                </div>
+                            </div>
+                            <div class="col-lg-2 text-center humidity">
+                                <div class="big-number">
+                                    -
+                                </div>
+                                <div>
+                                    @Resources.Humidity 1
+                                </div>
+                            </div>
+                            <div class="col-lg-2 text-center temperature">
+                                <div class="big-number">
+                                    -
+                                </div>
+                                <div>
+                                    @Resources.Temperature 2
+                                </div>
+                            </div>
+                            <div class="col-lg-2 text-center humidity">
+                                <div class="big-number">
+                                    -
+                                </div>
+                                <div>
+                                    @Resources.Humidity 2
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center power">
+                                <div class="big-number">
+                                    -
+                                </div>
+                                <div>
+                                    @Resources.Power
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>@Resources.chartTemperature - @Html.DisplayFor(m => m.Name)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="temp-line-chart"></div>
+                            <div class="text-right">
+                                <a href="#">@Resources.chartViewDetails <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+@section CurveModeScripts{
+    <!-- Morris Charts JavaScript -->
+    <script src="~/assets/js/plugins/morris/raphael.min.js"></script>
+    <script src="~/assets/js/plugins/morris/morris.min.js"></script>
+    <script src="~/assets/js/chartlibrary.js"></script>
+}

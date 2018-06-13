@@ -1,0 +1,41 @@
+﻿@model GlobalWatchSystem.Models.TransportPlan
+
+<hgroup class="col-lg-12">
+    <h3 class="page-header">@Resources.MenuPlanManagement</h3>
+</hgroup>
+
+<article>
+    @using (Html.BeginForm("Create", "TransportPlan"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="edit-item">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.Name)
+                </div>
+
+                <div class="edit-item">
+                    @Html.LabelFor(m => m.startTime)
+                    @Html.TextBoxFor(m => m.startTime,  new { @class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.startTime)
+                </div>
+                <div class="edit-item">
+                    @Html.LabelFor(m => m.stopTime)
+                    @Html.TextBoxFor(m => m.stopTime, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.stopTime)
+                </div>
+                <div class="edit-item">
+                    @Html.LabelFor(m => m.Remark)
+                    @Html.TextAreaFor(m => m.Remark, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Remark)
+                </div> 
+            </div>
+            <button type="submit" class="btn btn-default">@Resources.ActionSave</button>
+        </div>
+    }
+</article>
+
+

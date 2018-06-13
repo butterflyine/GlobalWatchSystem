@@ -1,0 +1,40 @@
+﻿@model GlobalWatchSystem.Models.ViewModel.EditUserModel
+
+<hgroup class="col-lg-12">
+    <h3 class="page-header">@Resources.UserManagementEdit</h3>
+</hgroup>
+
+<article>
+    @using (Html.BeginForm("edit", "account"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-lg-6">
+            @Html.HiddenFor(m => m.Id)
+            <div class="form-group">
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.UserName)
+                    @Html.TextBoxFor(m => m.UserName, new {@class = "form-control", @readonly = "true"})
+                </div>
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.Email)
+                    @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+                    @Html.ValidationMessageFor(u => u.Email)
+                </div>
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.Phone)
+                    @Html.TextBoxFor(m => m.Phone, new {@class = "form-control"})
+                    @Html.ValidationMessageFor(u => u.Phone)
+                </div>
+                @if (!HttpContext.Current.User.IsInRole("admin"))
+                {
+                    <div class="edit-item">
+                        @Html.LabelFor(u => u.AreaId)
+                        @Html.DropDownListFor(u => u.AreaId, (IEnumerable<SelectListItem>) ViewBag.Areas, new {@class = "form-control"})
+                    </div>
+                }
+            </div>
+            <button type="submit" class="btn btn-default">@Resources.ActionSave</button>
+        </div>
+    }
+</article>

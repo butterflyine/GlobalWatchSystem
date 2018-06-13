@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionCreateUser" xml:space="preserve">
+    <value>创建用户</value>
+  </data>
+  <data name="ActionDelete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="ActionEdit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="ActionSave" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>电子邮件</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="MenuAreaManagement" xml:space="preserve">
+    <value>区域管理</value>
+  </data>
+  <data name="MenuDeviceManagement" xml:space="preserve">
+    <value>设备管理</value>
+  </data>
+  <data name="MenuHome" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="MenuPlanManagement" xml:space="preserve">
+    <value>运输计划</value>
+  </data>
+  <data name="MenuUserManagement" xml:space="preserve">
+    <value>用户管理</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="PasswordConfirm" xml:space="preserve">
+    <value>密码确认</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>电话</value>
+  </data>
+  <data name="SiteName" xml:space="preserve">
+    <value>武钢江南中燃燃气（武汉）有限公司压力监控系统</value>
+  </data>
+  <data name="UserManagement" xml:space="preserve">
+    <value>用户管理</value>
+  </data>
+  <data name="UserManagementEdit" xml:space="preserve">
+    <value>编辑用户信息</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="MsgFieldRequired" xml:space="preserve">
+    <value>必填项</value>
+  </data>
+  <data name="ActionChangePassword" xml:space="preserve">
+    <value>修改密码</value>
+  </data>
+  <data name="ActionEditProfile" xml:space="preserve">
+    <value>个人资料</value>
+  </data>
+  <data name="ActionLogin" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="ActionLogout" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="MsgFieldConfirmPassword" xml:space="preserve">
+    <value>密码不匹配</value>
+  </data>
+  <data name="MsgFieldEmail" xml:space="preserve">
+    <value>{0}不是合法的电子邮件地址</value>
+  </data>
+  <data name="MsgFieldLength" xml:space="preserve">
+    <value>{0}长度应该在{2}和{1}之间</value>
+  </data>
+  <data name="MsgFieldPhone" xml:space="preserve">
+    <value>{0}不是有效的电话号码</value>
+  </data>
+  <data name="MsgPasswordNotMatch" xml:space="preserve">
+    <value>用户名或者密码错误</value>
+  </data>
+  <data name="UserManagementCreate" xml:space="preserve">
+    <value>创建用户</value>
+  </data>
+  <data name="MsgUserNameAlreadyExists" xml:space="preserve">
+    <value>用户名已存在</value>
+  </data>
+  <data name="AreaManagement" xml:space="preserve">
+    <value>区域管理</value>
+  </data>
+  <data name="AreaName" xml:space="preserve">
+    <value>区域名称</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="ActionCreateArea" xml:space="preserve">
+    <value>创建区域</value>
+  </data>
+  <data name="AreaManagementCreate" xml:space="preserve">
+    <value>创建区域</value>
+  </data>
+  <data name="AreaManagementEdit" xml:space="preserve">
+    <value>编辑区域</value>
+  </data>
+  <data name="AreaParent" xml:space="preserve">
+    <value>上级区域</value>
+  </data>
+  <data name="devListView" xml:space="preserve">
+    <value>设备列表</value>
+  </data>
+  <data name="devMapView" xml:space="preserve">
+    <value>设备地图</value>
+  </data>
+  <data name="AreaBelonged" xml:space="preserve">
+    <value>所属区域</value>
+  </data>
+  <data name="ActionCreateDevice" xml:space="preserve">
+    <value>创建设备</value>
+  </data>
+  <data name="ActionCreatePlan" xml:space="preserve">
+    <value>添加运输计划</value>
+  </data>
+  <data name="ActionViewAll" xml:space="preserve">
+    <value>查看所有</value>
+  </data>
+  <data name="MsgCanNotDeleteAreaWithDevice" xml:space="preserve">
+    <value>该区域下有设备，无法删除</value>
+  </data>
+  <data name="MsgCanNotDeleteAreaWithUser" xml:space="preserve">
+    <value>该区域下有用户，无法删除</value>
+  </data>
+  <data name="devCurveMode" xml:space="preserve">
+    <value>实时数据</value>
+  </data>
+  <data name="CurrentPage" xml:space="preserve">
+    <value>当前页</value>
+  </data>
+  <data name="FirstPage" xml:space="preserve">
+    <value>第一页</value>
+  </data>
+  <data name="LastPage" xml:space="preserve">
+    <value>最后一页</value>
+  </data>
+  <data name="LogAction" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="LogActioner" xml:space="preserve">
+    <value>操作人</value>
+  </data>
+  <data name="LogChanges" xml:space="preserve">
+    <value>修改内容</value>
+  </data>
+  <data name="LogDttm" xml:space="preserve">
+    <value>修改日期</value>
+  </data>
+  <data name="LogType" xml:space="preserve">
+    <value>对象</value>
+  </data>
+  <data name="MenuAuditLog" xml:space="preserve">
+    <value>操作日志</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>下一页</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>上一页</value>
+  </data>
+  <data name="chartTemperature" xml:space="preserve">
+    <value>温度/湿度曲线</value>
+  </data>
+  <data name="chartViewDetails" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>区域</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Device" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="DeviceIMEI" xml:space="preserve">
+    <value>设备IMEI</value>
+  </data>
+  <data name="DeviceManagementCreate" xml:space="preserve">
+    <value>添加设备</value>
+  </data>
+  <data name="DeviceManagementEdit" xml:space="preserve">
+    <value>编辑设备信息</value>
+  </data>
+  <data name="DeviceName" xml:space="preserve">
+    <value>设备名称</value>
+  </data>
+  <data name="DeviceNumber" xml:space="preserve">
+    <value>SIM卡号</value>
+  </data>
+  <data name="SwitchArea" xml:space="preserve">
+    <value>切换区域</value>
+  </data>
+  <data name="LabelCancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="LabelConfirm" xml:space="preserve">
+    <value>是的</value>
+  </data>
+  <data name="MsgAtLeastOneAreaInSystem" xml:space="preserve">
+    <value>无法删除，至少需保留一个区域。</value>
+  </data>
+  <data name="MsgCanNotDeleteAdmin" xml:space="preserve">
+    <value>管理员账号无法删除。</value>
+  </data>
+  <data name="MsgCantSetParentAreaToSelf" xml:space="preserve">
+    <value>不能设置自身为上级区域</value>
+  </data>
+  <data name="MsgDeleteAlert" xml:space="preserve">
+    <value>确定删除“{0}”？</value>
+  </data>
+  <data name="DevicePower" xml:space="preserve">
+    <value>电池电量</value>
+  </data>
+  <data name="DevicePowerMode" xml:space="preserve">
+    <value>供电类型</value>
+  </data>
+  <data name="DeviceACMode" xml:space="preserve">
+    <value>交流供电</value>
+  </data>
+  <data name="DeviceDCMode" xml:space="preserve">
+    <value>电池供电</value>
+  </data>
+  <data name="DeviceInformation" xml:space="preserve">
+    <value>设备信息</value>
+  </data>
+  <data name="devHistoryMode" xml:space="preserve">
+    <value>历史数据</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="Query" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="AlarmBattery" xml:space="preserve">
+    <value>电池电量告警</value>
+  </data>
+  <data name="Alarms" xml:space="preserve">
+    <value>告警</value>
+  </data>
+  <data name="AlarmTypeHumidity" xml:space="preserve">
+    <value>湿度告警</value>
+  </data>
+  <data name="AlarmTypeTemperature" xml:space="preserve">
+    <value>温度告警</value>
+  </data>
+  <data name="AppSettings" xml:space="preserve">
+    <value>系统配置</value>
+  </data>
+  <data name="BatteryThreshold" xml:space="preserve">
+    <value>电池电量告警阈值下限（单位：%）</value>
+  </data>
+  <data name="HumidityThreshold" xml:space="preserve">
+    <value>湿度告警阈值</value>
+  </data>
+  <data name="MsgFieldExactLength" xml:space="preserve">
+    <value>{0}长度应该为{1}</value>
+  </data>
+  <data name="TemperatureThreshold" xml:space="preserve">
+    <value>温度告警阈值（单位： ℃）</value>
+  </data>
+  <data name="DeviceData" xml:space="preserve">
+    <value>数据相关</value>
+  </data>
+  <data name="Humidity" xml:space="preserve">
+    <value>湿度</value>
+  </data>
+  <data name="LastUpdate" xml:space="preserve">
+    <value>最近更新</value>
+  </data>
+  <data name="Power" xml:space="preserve">
+    <value>电量(%)</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>温度(℃)</value>
+  </data>
+  <data name="DeviceOffline" xml:space="preserve">
+    <value>离线</value>
+  </data>
+  <data name="DeviceOnline" xml:space="preserve">
+    <value>在线</value>
+  </data>
+  <data name="ChannelNo" xml:space="preserve">
+    <value>通道</value>
+  </data>
+  <data name="HumidityThresholdConfigError" xml:space="preserve">
+    <value>湿度告警配置错误</value>
+  </data>
+  <data name="HumidityThresholdLower" xml:space="preserve">
+    <value>湿度下限</value>
+  </data>
+  <data name="HumidityThresholdUpper" xml:space="preserve">
+    <value>湿度上限</value>
+  </data>
+  <data name="TemperatureThresholdConfigError" xml:space="preserve">
+    <value>温度告警配置错误</value>
+  </data>
+  <data name="TemperatureThresholdLower" xml:space="preserve">
+    <value>温度下限</value>
+  </data>
+  <data name="TemperatureThresholdUpper" xml:space="preserve">
+    <value>温度上限</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>纬度</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>经度</value>
+  </data>
+  <data name="FetchGPSFromMap" xml:space="preserve">
+    <value>地图选点</value>
+  </data>
+  <data name="btnOkTip" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="StartPlan" xml:space="preserve">
+    <value>开始计划</value>
+  </data>
+  <data name="StopPlan" xml:space="preserve">
+    <value>停止计划</value>
+  </data>
+  <data name="ChangePlanTip" xml:space="preserve">
+    <value>确定要重新分配该设备所属运输计划?</value>
+  </data>
+  <data name="ViewPlanTrace" xml:space="preserve">
+    <value>查看运输踪迹</value>
+  </data>
+  <data name="StartPoint" xml:space="preserve">
+    <value>起始点</value>
+  </data>
+  <data name="ExportData" xml:space="preserve">
+    <value>导出数据</value>
+  </data>
+  <data name="AlarmTypePress" xml:space="preserve">
+    <value>压力告警</value>
+  </data>
+  <data name="chartPress" xml:space="preserve">
+    <value>压力曲线</value>
+  </data>
+  <data name="Press" xml:space="preserve">
+    <value>压力</value>
+  </data>
+  <data name="PressThreshold" xml:space="preserve">
+    <value>压力告警阈值（单位：kPa）</value>
+  </data>
+  <data name="PressThresholdConfigError" xml:space="preserve">
+    <value>压力告警配置错误</value>
+  </data>
+  <data name="PressThresholdLower" xml:space="preserve">
+    <value>压力告警下限</value>
+  </data>
+  <data name="PressThresholdUpper" xml:space="preserve">
+    <value>压力告警上限</value>
+  </data>
+  <data name="DeviceType" xml:space="preserve">
+    <value>设备类型</value>
+  </data>
+</root>

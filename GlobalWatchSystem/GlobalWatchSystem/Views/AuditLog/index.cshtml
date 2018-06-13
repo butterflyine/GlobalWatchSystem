@@ -1,0 +1,35 @@
+﻿@using GlobalWatchSystem.Helpers
+@using GlobalWatchSystem.Models
+@using GlobalWatchSystem.Models.ViewModel
+<hgroup>
+    <h3 class="page-header">@Resources.MenuAuditLog</h3>
+</hgroup>
+
+<article>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>@Resources.LogActioner</th>
+                    <th>@Resources.LogAction</th>
+                    <th>@Resources.LogType</th>
+                    <th>@Resources.LogDttm</th>
+                    <th>@Resources.LogChanges</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (AuditLog log in ViewBag.Logs)
+                {
+                    <tr>
+                        <td>@log.Actioner</td>
+                        <td>@Resources.ResourceManager.GetString(log.Action)</td>
+                        <td>@Resources.ResourceManager.GetString(log.Type)</td>
+                        <td>@log.Dttm</td>
+                        <td>@AuditLogHumanizer.Humanize(log)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="pull-right">@Html.Pagination((Pagination)ViewBag.Pagination, "auditlog")</div>
+</article>

@@ -1,0 +1,36 @@
+﻿@using System.Collections.Generic
+@model GlobalWatchSystem.Models.ViewModel.AreaModel
+
+
+<hgroup>
+    <h3 class="page-header">@Resources.AreaManagementEdit</h3>
+</hgroup>
+
+<article>
+    @using (Html.BeginForm("edit", "area"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-lg-6">
+            @Html.HiddenFor(m => m.Id)
+            <div class="form-group">
+                <div class="edit-item">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.Description)
+                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                </div>
+                <div class="edit-item">
+                    @Html.LabelFor(u => u.ParentId)
+                    @Html.DropDownList("ParentId", (IEnumerable<SelectListItem>)ViewBag.Areas, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ParentId)
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">@Resources.ActionSave</button>
+        </div>
+    }
+</article>
+

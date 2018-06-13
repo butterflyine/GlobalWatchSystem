@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        #mapContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        #tip {
+            height: 70px;
+            background-color: #fff;
+            padding-left: 10px;
+            padding-right: 10px;
+            position: absolute;
+            font-size: 12px;
+            right: 10px;
+            bottom: 30px;
+            border-radius: 3px;
+            line-height: 30px;
+            border: 1px solid #ccc;
+        }
+
+            #tip input {
+                border: 1px solid #ddd;
+                height: 23px;
+                border-radius: 3px;
+                outline: none;
+            }
+    </style>
+</head>
+<body>
+    <div id="mapContainer"></div>
+    <div id="tip">
+        <br>
+        <div>
+        X：<input type="text" id="lngX" name="lngX" value="" />&nbsp;
+        Y：<input type="text" id="latY" name="latY" value="" />&nbsp;
+            <input type="button" id="btnOk" name="btnOk" value="" onclick="acceptGPS()" />
+        </div>
+    </div>
+
+    <script  src="http://webapi.amap.com/maps?v=1.3&key=20bfaeaa29dde4edc6b521bdb13252f0"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=j8HK07y0Sc6V3n9UMLo1Wd5IYFCBMEyU"></script>
+    <script type="text/javascript">
+        var map;
+        //初始化地图对象，加载地图
+        map = new AMap.Map("mapContainer", {
+            resizeEnable: true,
+            //二维地图显示视口
+            view: new AMap.View2D({
+                center: new AMap.LngLat(101.397428, 38.90923),//地图中心点
+                zoom: 5 //地图显示的缩放级别
+            })
+        });
+
+        document.getElementById('btnOk').value = this.opener.btnTitle;
+
+        //为地图注册click事件获取鼠标点击出的经纬度坐标
+        var clickEventListener = AMap.event.addListener(map, 'click', function (e) {
+            document.getElementById("lngX").value = e.lnglat.getLng();
+            document.getElementById("latY").value = e.lnglat.getLat();
+        });
+
+        function acceptGPS()
+        {
+            this.opener.document.getElementById('longitude').value = document.getElementById("lngX").value;
+            this.opener.document.getElementById('latitude').value = document.getElementById("latY").value;
+            this.close();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@using System
+@using GlobalWatchSystem.Helpers
+@using GlobalWatchSystem.Models.ViewModel
+@model System.Collections.Generic.IEnumerable<GlobalWatchSystem.Models.ViewModel.IndexUser>
+
+<hgroup>
+    <h3 class="page-header">@Resources.UserManagement</h3>
+</hgroup>
+
+<article>
+    <div class="table-responsive">
+        @Html.ValidationSummary(true)
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>@Resources.UserName</th>
+                    <th>@Resources.Email</th>
+                    <th>@Resources.Phone</th>
+                    <th>@Resources.AreaBelonged</th>
+                    <th>@Resources.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (IndexUser user in Model)
+                {
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                        <td>@user.Phone</td>
+                        <td>@user.AreaName</td>
+                        <td>
+                            <a href="@Url.Action("edit", "account", new {id = user.Id})">
+                                <button type="button" class="btn btn-xs btn-default">@Resources.ActionEdit</button> 
+                            </a>
+                            @using (Html.BeginForm("delete", "account", new {id = user.Id}, FormMethod.Post, new {@style = "display:inline"}))
+                            {
+                                <input type="submit" class="btn btn-xs btn-default" 
+                                       data-delete-alert="@String.Format(Resources.MsgDeleteAlert, user.UserName)" 
+                                       data-confirm="@Resources.LabelConfirm"
+                                       data-cancel="@Resources.LabelCancel"
+                                       value="@Resources.ActionDelete" />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    @Html.ActionLink(@Resources.ActionCreateUser, "create", "account")
+    <div class="pull-right">
+        @Html.Pagination((Pagination) ViewBag.Pagination, "account")
+    </div>
+</article>

@@ -1,0 +1,51 @@
+﻿@using System.Web
+
+    <ul class="nav navbar-nav side-nav">
+        <li class="active">
+            <a href="/">
+                <i class="fa fa-fw fa-home"></i>
+                @if (ViewBag.CurrentArea != null)
+                {
+                    @ViewBag.CurrentArea.Name
+                }
+                else
+                {
+                    @Resources.MenuHome
+                }
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#deviceItems">
+                <i class="fa fa-fw fa-th"></i>
+                @Resources.devListView
+                <i class="fa fa-fw fa-caret-down"></i>
+            </a>
+            <ul id="deviceItems" class="collapse">
+                <li>
+                    <a href="@Url.Action("tablemode", "device")">温湿度设备</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("tempmode12chs", "device")">12路温度设备</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="@Url.Action("mapmode", "device")">
+                <i class="fa fa-fw fa-map-marker"></i>
+                @Resources.devMapView
+            </a>
+        </li>
+        
+        <li>
+            <a href="@Url.Action("Index", "TransportPlan")"><i class="fa fa-fw fa-truck"></i> @Resources.MenuPlanManagement</a>
+        </li>
+        @if (HttpContext.Current.User.IsInRole("admin"))
+        {
+            <li>
+                <a href="@Url.Action("index", "account")"><i class="fa fa-fw fa-user"></i> @Resources.MenuUserManagement</a>
+            </li>
+            <li>
+                <a href="@Url.Action("index", "auditlog")"><i class="fa fa-fw fa-bars"></i> @Resources.MenuAuditLog</a>
+            </li>
+        }
+    </ul>

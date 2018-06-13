@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<AppSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <IsRunOnOSStart>true</IsRunOnOSStart>
+
+  <DtuConnMode>TCP</DtuConnMode>
+
+  <DtuConnPort>15200</DtuConnPort>
+
+  <DcConnAllow>true</DcConnAllow>
+
+  <DcConnMax>104</DcConnMax>
+
+  <DcConnPort>15100</DcConnPort>
+
+  <DcConnNeedAuthority>false</DcConnNeedAuthority>
+
+  <DcConnUserName>admin</DcConnUserName>
+
+  <DcConnPassword>admin</DcConnPassword>
+
+</AppSetting>

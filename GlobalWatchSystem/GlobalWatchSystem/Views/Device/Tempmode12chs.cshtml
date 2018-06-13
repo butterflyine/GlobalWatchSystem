@@ -1,0 +1,100 @@
+﻿@using System;
+@using GlobalWatchSystem.Helpers;
+@using GlobalWatchSystem.Models;
+@using GlobalWatchSystem.Models.ViewModel;
+
+@model System.Collections.Generic.IEnumerable<GlobalWatchSystem.Models.ViewModel.DeviceModel>
+
+<hgroup>
+    <h3 class="page-header">@Resources.MenuDeviceManagement - @Resources.devListView</h3>
+</hgroup>
+
+<article>
+    <div class="table-responsive" id="device-table">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>@Resources.DeviceName</th>
+                    <th>@Resources.AreaBelonged</th>
+                    @foreach (var ele in ViewBag.chInfos)
+                    {
+                        <th>@ele.Unit.UnitDesc_CN/@ele.Unit.UnitName - @ele.Ch</th> 
+                    }
+                    <th>@Resources.DevicePowerMode</th>
+                    <th>@Resources.DeviceOnline</th>
+                    <th>@Resources.LastUpdate</th>
+                    <th>@Resources.MenuPlanManagement</th>
+                    <th>@Resources.Actions</th>
+                    <th>@Resources.DeviceData</th>
+                </tr>
+            </thead>
+            <tbody data-dc-description="@Resources.DeviceDCMode" id="devTable"
+                   data-ac-description="@Resources.DeviceACMode">
+                @foreach (DeviceModel device in Model)
+                {
+                    <tr data-device-id="@device.Id">
+                        <td>@device.Name</td>
+                        <td>@device.AreaName</td>
+                        @foreach (var ele in ViewBag.chInfos)
+                        {
+                            <td class="temperature"> <i class="fa fa-spoon"></i> <span class="content">-</span> </td>
+                        }
+                        
+                        @if (@device.PowerMode == PowerMode.Battary)
+                        {
+                            <td class="power"><i class="fa fa-signal"></i> <span class="content">-</span></td>
+                        }
+                        else
+                        {
+                            <td><i class="fa fa-bolt"></i> @Resources.DeviceACMode</td>
+                        }
+                        <td class="device-status">
+                            <span class="on"><i class="fa fa-toggle-on">&nbsp;</i>@Resources.DeviceOnline</span>
+                            <span class="off" display="none" style="color:red"><i class="fa fa-toggle-off">&nbsp;</i>@Resources.DeviceOffline</span>
+                        </td>
+                        <td>@device.DataDttm</td>
+                        @if (@device.TransportPlan == null)
+                        {
+                            <td></td>
+                        }
+                        else
+                        {
+                            <td>@device.TransportPlan.Name</td>
+                        }
+                        <td>
+                            <a href="@Url.Action("edit", "device", new {id = device.Id})">
+                                <button type="button" class="btn btn-xs btn-default">@Resources.ActionEdit</button>
+                            </a>
+                            @using (Html.BeginForm("delete", "device", new { id = device.Id }, FormMethod.Post, new { @style = "display:inline" }))
+                            {
+                                <input type="submit" class="btn btn-xs btn-default"
+                                       data-delete-alert="@String.Format(Resources.MsgDeleteAlert, device.Name)"
+                                       data-confirm="@Resources.LabelConfirm"
+                                       data-cancel="@Resources.LabelCancel"
+                                       value="@Resources.ActionDelete" />
+                            }
+                        </td>
+
+                        <td>
+                            <a href="@Url.Action("MapMode", "device", new {id = device.Id})">
+                                <button type="button" class="btn btn-xs btn-default">@Resources.devMapView</button>
+                            </a>
+                            <a href="@Url.Action("CurveMode", "device", new {id = device.Id})">
+                                <button type="button" class="btn btn-xs btn-default">@Resources.devCurveMode</button>
+                            </a>
+                            <a href="@Url.Action("HistoryMode", "device", new {id = device.Id})">
+                                <button type="button" class="btn btn-xs btn-default">@Resources.devHistoryMode</button>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    @Html.ActionLink(@Resources.ActionCreateDevice, "create", "device")
+    <div class="pull-right">@Html.Pagination((Pagination)ViewBag.Pagination, "device", "TableMode")</div>
+</article>
+
+@section TableModeScripts{
+    <script src="~/assets/js/tablelibrary.js"></script>
+}

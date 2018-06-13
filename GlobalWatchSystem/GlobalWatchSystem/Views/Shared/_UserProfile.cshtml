@@ -1,0 +1,66 @@
+﻿@using GlobalWatchSystem.Models
+@using GlobalWatchSystem.Security
+<ul class="nav navbar-right top-nav">
+    
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-sitemap"></i>@Resources.SwitchArea <b class="caret"></b></a>
+        <ul class="dropdown-menu message-dropdown">
+            @foreach (Area area in ViewBag.SwitchAreaList)
+            {
+                <li class="message-preview">
+                    <a href="@Url.Action("switch", "home", new {id = area.Id})">
+                        <div class="media">
+                            <div class="media-body">
+                                <h5 class="media-heading">
+                                    <strong>@area.Name</strong>
+                                </h5>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+    </li>
+    <li class="dropdown" id="alarms">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>@Resources.Alarms<b class="caret"></b></a>
+        <ul class="dropdown-menu alert-dropdown" data-temperature="@Resources.AlarmTypeTemperature" data-humidity="@Resources.AlarmTypeHumidity" data-battery="@Resources.AlarmBattery"></ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> @Resources.Language <b class="caret"></b></a>
+        <ul class="dropdown-menu alert-dropdown">
+            <li>
+                <a href="@Url.Action("setculture", "home", new {culture = "zh-cn"})">中文</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="@Url.Action("setculture", "home", new {culture = "en-US"})">English</a>
+            </li>
+        </ul>
+    </li>
+    @{
+        var identitfy = (CustomIdentity) HttpContext.Current.User.Identity;
+    }
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @identitfy.Name <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="@Url.Action("edit", "account", new {id = @identitfy.Id})"><i class="fa fa-fw fa-user"></i> @Resources.ActionEditProfile</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="@Url.Action("changepassword", "account", new {id = @identitfy.Id})"><i class="fa fa-fw fa-key"></i> @Resources.ActionChangePassword</a>
+            </li>
+            @if (HttpContext.Current.User.IsInRole("admin"))
+            {
+                <li class="divider"></li>
+                <li>
+                    <a href="@Url.Action("settings", "home")"><i class="fa fa-fw fa-gear"></i> @Resources.AppSettings</a>
+                </li>
+            }
+            <li class="divider"></li>
+            <li>
+                <a href="/logout"><i class="fa fa-fw fa-power-off"></i> @Resources.ActionLogout</a>
+            </li>
+        </ul>
+    </li>
+</ul>

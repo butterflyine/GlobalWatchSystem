@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "";
+}
+
+@model GlobalWatchSystem.Models.ViewModel.LoginModel
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>@Resources.SiteName</title>
+        <link href="/Assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/Assets/css/sb-admin.css" rel="stylesheet">
+        <link href="/Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/Assets/css/system.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body class="login-body">
+        <h1 class="text-center login-header">@Resources.SiteName</h1>
+        <div class="login-form">
+            @Html.ValidationSummary(true)
+            @using (Html.BeginForm())
+            {
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.UserName, new {@class = "form-control", placeholder = @Resources.UserName})
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </div>
+
+                <div class="form-group">
+                    @Html.PasswordFor(m => m.Password, new {@class = "form-control", placeholder = @Resources.Password})
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+                <button type="submit" class="btn btn-default btn-primary btn-block">@Resources.ActionLogin</button>
+            }
+        </div>
+
+    </body>
+</html>

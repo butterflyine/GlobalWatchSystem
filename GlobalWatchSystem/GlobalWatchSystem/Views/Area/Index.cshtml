@@ -1,0 +1,50 @@
+﻿@using System
+@using GlobalWatchSystem.Helpers
+@using GlobalWatchSystem.Models.ViewModel
+@model System.Collections.Generic.IEnumerable<GlobalWatchSystem.Models.ViewModel.AreaModel>
+
+<hgroup>
+    <h3 class="page-header">@Resources.AreaManagement</h3>
+</hgroup>
+
+<article>
+    <div class="table-responsive">
+        @Html.ValidationSummary(true)
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>@Resources.AreaName</th>
+                    <th>@Resources.Description</th>
+                    <th>@Resources.AreaBelonged</th>
+                    <th>@Resources.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (AreaModel area in Model)
+                {
+                    <tr>
+                        <td>@area.Name</td>
+                        <td>@area.Description</td>
+                        <td>@area.ParentArea</td>
+                        <td>
+                            <a href="@Url.Action("edit", "area", new {id = area.Id})">
+                                <button type="button" class="btn btn-xs btn-default">@Resources.ActionEdit</button>
+                            </a>
+                            @using (Html.BeginForm("delete", "area", new { id = area.Id }, FormMethod.Post, new { @style = "display:inline" }))
+                            {
+                                <input type="submit" class="btn btn-xs btn-default"
+                                       data-delete-alert="@String.Format(Resources.MsgDeleteAlert, area.Name)"
+                                       data-confirm="@Resources.LabelConfirm"
+                                       data-cancel="@Resources.LabelCancel"
+                                       value="@Resources.ActionDelete" />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="pull-right">@Html.Pagination((Pagination) ViewBag.Pagination, "area")</div>
+    @Html.ActionLink(@Resources.ActionCreateArea, "create", "area")
+
+</article>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>@Resources.SiteName</title>
+        <link href="/Assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/Assets/css/sb-admin.css" rel="stylesheet">
+        <link href="/Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/Assets/css/system.css" rel="stylesheet">
+        <link href="~/assets/css/plugins/morris.css" rel="stylesheet" />
+        <link href="~/assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">@Resources.SiteName</a>
+                </div>
+                <div>
+                    @Html.Partial("_UserProfile")
+                </div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    @Html.Partial("_SidebarMenu")
+                </div>
+            </nav>
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    @RenderSection("Header", false)
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <script src="/Assets/js/jquery.js"></script>
+        <script src="/Assets/js/jquery.cookie.js"></script>
+        <script src="/Assets/js/underscore.min.js"></script>
+        <script src="/Assets/js/bootstrap.min.js"></script>
+        <script src="/Assets/js/bootbox.min.js"></script>
+        <script src="/Assets/js/howler.js"></script>
+        <script src="/Assets/js/system.js"></script>
+
+        @RenderSection("CurveModeScripts", required: false)
+        @RenderSection("HistoryModeScripts", required: false)
+        @RenderSection("MapModeScripts", required:false)
+        @RenderSection("TableModeScripts", required:false)
+        @RenderSection("TableEditJS", required:false)
+        @RenderSection("MapTrackScripts", required:false)
+    </body>
+</html>
